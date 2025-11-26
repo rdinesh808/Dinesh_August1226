@@ -20,8 +20,10 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install prettytable
           echo "packages installed successfully"
 
       - name: Run Python file
         run: python august12.py
+
+      - name: post-job
+        run: echo "Job completed"

@@ -1,20 +1,12 @@
 import smtplib
 import calendar
 from datetime import date
-from prettytable import PrettyTable
 from email.message import EmailMessage
 
 APP_PASSWORD = "rgnd aasp wzyx fnhj"
 sender_email = "rdinesh808@gmail.com"
 receiver_email = "rdinesh808@gmail.com"
 
-# today = datetime.strptime(datetime.now().strftime("%Y-%m-%d"), "%Y-%m-%d")
-# august_12 = datetime.strptime("2026-08-12", "%Y-%m-%d")
-# total_days = august_12 - today
-# day = total_days.days
-
-table = PrettyTable()
-table.field_names = ["Year", "Month", "Count"]
 start_date = date.today()
 end_date = date(2026, 8, 12)
 total_days = (end_date - start_date).days
@@ -32,14 +24,14 @@ while current_date <= end_date:
     month_counts[month_name] = days_in_month
     current_date = first_day_next_month
 print(f"Total remaining days from {start_date} to {end_date}: {total_days}\n")
+year_month_details = ""
 for month, days in month_counts.items():
     year = month.split()[1]
     curr_month = month.split()[0]
     count_days = days
-    table.add_row([year, curr_month, count_days])
-
+    year_month_details += f"{month}: {days} days\n"
 subject = f"12-August-2026 is coming in {total_days} days"
-body = f"""Hi Dinesh,\n\nTotal remaining days from {start_date} to {end_date}: {total_days}\n{table}\n\nThanks"""
+body = f"""Hi Dinesh,\n\nTotal remaining days from {start_date} to {end_date}: {total_days}\n{year_month_details}\nThanks"""
 
 message = EmailMessage()
 message.set_content(body)
