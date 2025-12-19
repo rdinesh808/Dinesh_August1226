@@ -5,7 +5,10 @@ from email.message import EmailMessage
 
 APP_PASSWORD = "rgnd aasp wzyx fnhj"
 sender_email = "rdinesh808@gmail.com"
-receiver_email = "rdinesh808@gmail.com"
+receiver_email = [
+    "rdinesh808@gmail.com",
+    "dineshrajamanickam177@gmail.com"
+]
 
 start_date = date.today()
 end_date = date(2026, 8, 12)
