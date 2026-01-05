@@ -29,10 +29,6 @@ while current_date <= end_date:
             wish_days = "Wish you a very happy birthday Dinesh! Have a great year ahead! 🎉"
         if start_date == date(2026, 1, 1):
             wish_days = "Happy New Year Dinesh! Wishing you a prosperous year ahead! 🎉"
-        if start_date == date(2025, 12, 25):
-            wish_days = "Merry Christmas Dinesh! May your holidays be filled with joy and cheer! 🎄"
-        if start_date == end_date:
-            wish_days = "Happy 12-August-2026 Dinesh! you completed your goal! 🎉"
     else:
         days_in_month = (end_date - current_date).days + 1
     month_name = calendar.month_name[current_date.month] + " " + str(current_date.year)
