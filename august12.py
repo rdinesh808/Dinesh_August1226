@@ -2,7 +2,6 @@ import smtplib
 import calendar
 from datetime import date
 from email.message import EmailMessage
-import os
 
 # ---------------- CONFIG ----------------
 APP_PASSWORD = "rgnd aasp wzyx fnhj"
@@ -27,14 +26,12 @@ month = start_date.month
 while (year, month) <= (end_date.year, end_date.month):
     days_in_month = calendar.monthrange(year, month)[1]
 
-    # Adjust start month
     if year == start_date.year and month == start_date.month:
         days_in_month -= start_date.day - 1
 
-    # Adjust end month
     if year == end_date.year and month == end_date.month:
         days_in_month = end_date.day
-
+    
     month_name = f"{calendar.month_name[month]} {year}"
     month_counts[month_name] = days_in_month
 
@@ -44,17 +41,32 @@ while (year, month) <= (end_date.year, end_date.month):
         year += 1
 
 # ---------------- WISH MESSAGE ----------------
-wish_days = "As usual day! Have a wonderful day ahead! 😊"
-
+mname, yname = list(month_counts.keys())[0].split(' ')
 if start_date == birth_day_date:
     wish_days = "Wish you a very happy birthday Dinesh! Have a great year ahead! 🎉"
 elif start_date == end_date:
     wish_days = "Happy 12-August-2026 Dinesh! You completed your goal! 🎉"
+elif date(2026, 2, 1) == start_date:
+    wish_days = "Happy February! Wishing you a month filled with love and joy! ❤️"
+elif date(2026, 3, 1) == start_date:
+    wish_days = "Welcome March! May this month bring you new opportunities and happiness! 🌸"
+elif date(2026, 4, 1) == start_date:
+    wish_days = "Happy April! Wishing you a month full of sunshine and smiles! ☀️"
+elif date(2026, 5, 1) == start_date:
+    wish_days = "Welcome May! May this month bring you growth and success! 🌼"
+elif date(2026, 6, 1) == start_date:
+    wish_days = "Happy June! Wishing you a month filled with warmth and joy! 🌞"
+elif date(2026, 7, 1) == start_date:
+    wish_days = "Welcome July! May this month bring you happiness and prosperity! 🌻"
+elif date(2026, 8, 1) == start_date:
+    wish_days = "Happy August! Wishing you a month full of adventures and fun! 🌟"
+else:
+    wish_days = f"Year {yname}, {mname.upper()} Month, As usual day! Have a wonderful day ahead! 😊"
 
 # ---------------- EMAIL BODY ----------------
 year_month_details = ""
 for month, days in month_counts.items():
-    year_month_details += f"{month} : {days} days\n"
+    year_month_details += f"{month}   : {days} days\n"
 
 subject = f"12-August-2026 is coming in {total_days} days"
 
