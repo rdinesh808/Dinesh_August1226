@@ -46,8 +46,6 @@ if start_date == birth_day_date:
     wish_days = "Wish you a very happy birthday Dinesh! Have a great year ahead! 🎉"
 elif start_date == end_date:
     wish_days = "Happy 12-August-2026 Dinesh! You completed your goal! 🎉"
-elif date(2026, 2, 1) == start_date:
-    wish_days = "Happy February! Wishing you a month filled with love and joy! ❤️"
 elif date(2026, 3, 1) == start_date:
     wish_days = "Welcome March! May this month bring you new opportunities and happiness! 🌸"
 elif date(2026, 4, 1) == start_date:
